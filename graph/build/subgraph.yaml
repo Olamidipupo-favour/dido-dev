@@ -5,22 +5,22 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: Contract
-    network: mainnet
+    name: DiDo
+    network: optimism-sepolia
     source:
-      address: "0xbf85c19AAA9629D1B7BC66D597B86ceC39b056E9"
-      abi: Contract
-      startBlock: 10265648
+      address: "0x0290f25EA78E3d85076e085B87787C30567f63f9"
+      abi: DiDo
+      startBlock: 10271931
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Transfer
+        - Donate
       abis:
-        - name: Contract
-          file: Contract/abis/Contract.json
+        - name: DiDo
+          file: DiDo/abis/DiDo.json
       eventHandlers:
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
-      file: Contract/Contract.wasm
+        - event: Donate(address,address,uint256)
+          handler: handleDonate
+      file: DiDo/DiDo.wasm
