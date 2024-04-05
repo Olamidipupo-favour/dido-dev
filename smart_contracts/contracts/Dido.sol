@@ -97,9 +97,5 @@ contract Dido is ReentrancyGuard {
         require(address(this).balance > _amount, "Insufficient balance");
         payable(_recipientAddress).transfer(_amount);
             
-    }
-
-
-
-    
+    }    
 }
