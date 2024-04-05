@@ -24,6 +24,9 @@ app.get("/transactions", (req, res) => {
 app.get("/terms", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "terms.html"));
 });
+app.get("/request_donation", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "donation.html"));
+});
 app.get("/cause-details", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "cause-details.html"));
 });
@@ -34,7 +37,7 @@ app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
 
-// Start the server
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
