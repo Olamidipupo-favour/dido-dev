@@ -100,26 +100,26 @@
           <form action="#" method="post" enctype="multipart/form-data">
             <img id="imagePreview" class="image-preview img-thumbnail mb-4" src="./img/donation/look_for_help.png" alt="" style="width: 100%; object-fit: cover; height: 400px; border-radius: 5px;">
             <div class="form-group mb-4" >
-              <label for="donationTitle" class="mb-2">Donation Title</label>
-              <input type="text" class="form-control" maxlength="120" minlength="50" id="donationTitle" name="donationTitle" placeholder="Enter donation title" required>
+              <label for="donationTitle" class="mb-2">Provide a title for the donation</label>
+              <input type="text" class="form-control py-3" maxlength="120" minlength="50" id="donationTitle" name="donationTitle" placeholder="Enter donation title" required>
               <p id="charCount" class="mt-2 mb-4"  style="font-size: 13px;float: right;">120 Characters left</p>
             </div>
 
             <div class="form-group mb-4" class="mb-2">
               <label for="donationDescription">Donation Description</label>
-              <textarea class="form-control" id="donationDescription" name="donationDescription" rows="3" placeholder="Enter donation description" required></textarea>
+              <textarea class="form-control py-3" id="donationDescription" name="donationDescription" rows="3" placeholder="Provide description for the donation" required></textarea>
             </div>
 
             <div class="form-group mb-4">
               <label for="coverImage" class="mb-2">Upload Cover Image for Donation</label>
-              <input type="file" accept=".jpg, .jpeg, .png" class="form-control" id="coverImage" name="coverImage" onchange="previewImage(event)" required>
+              <input type="file" accept=".jpg, .jpeg, .png" class="form-control " id="coverImage" name="coverImage" onchange="previewImage(event)" required>
              
             </div>
            
 
             <div class="form-group mb-4">
               <label for="donationTarget" class="mb-2">Donation Target (in ETH)</label>
-              <input type="number" class="form-control" id="donationTarget" name="donationTarget" placeholder="Enter donation target amount" required>
+              <input type="number" class="form-control py-3" id="donationTarget" name="donationTarget" placeholder="Provide donation target amount" required>
             </div>
 
             <div class="alert alert-info" role="alert">
