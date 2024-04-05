@@ -1,0 +1,9 @@
+gunicorn
+flask
+gql[all]
+json2html
+python-dotenv
+flask-jwt-extended
+flask-cors
+pymongo
+flask-restful
