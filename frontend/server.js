@@ -36,6 +36,9 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
+app.get("/donate", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "donation.html"));
+});
 
 
 const PORT = process.env.PORT || 3000;
