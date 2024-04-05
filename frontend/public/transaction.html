@@ -35,10 +35,10 @@
                   <ul>
                     <li><a href="./">Home</a></li>
 
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./cause.html">Cause</a></li>
-                    <li class="active"><a href="./transaction.html">Transactions</a></li>
-                    <li><a href="./terms.html">T&C</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/cause">Cause</a></li>
+                    <li class="active"><a href="/transactions">Transactions</a></li>
+                    <li><a href="/terms">T&C</a></li>
                   </ul>
                 </nav>
               </div>
@@ -46,7 +46,7 @@
             <div class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
               <div class="header-right d-flex align-items-center justify-content-end">
                 <div class="header-sing d-inline-block d-none d-xl-block">
-                  <a class="g_btn hbtn_1 to_right1 rad-30">Connect Wallet<span></span></a>
+                  <a  onclick="connectWallet()"  id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
                 </div>
                 <div class="hamburger-menu menu-bar info-bar d-sm-block ml-20">
                   <button class="hamburger-btn open-mobile-menu">
@@ -151,61 +151,12 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
                               </tbody>
                             </table>
                             <a
                               class="g_btn trans_btn rad-50 p-45"
                               style="margin: 30px; float: right"
-                              href="./transaction.html"
+                              href="/transactions"
                             >
                               View More Transactions <span></span>
                             </a>
@@ -292,3 +243,57 @@
 </body>
 
 </html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./assets/js/main.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+  let url = "https://dido-dev-backend.onrender.com";
+    fetch(`${url}/api/all-transactions`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+         console.log(data.donations);
+         let table=document.querySelector('tbody');
+          data.donations.forEach((element) => {
+            let tr = document.createElement('tr');
+            let donor = document.createElement('td');
+            donor.innerText = element.sender;
+            let cause = document.createElement('td');
+            cause.innerText = element.cause;
+            let date = document.createElement('td');
+            date.innerText = element.date;
+            let amount = document.createElement('td');
+            amount.innerHTML = '<i class="fas fa-coins" style="padding-right: 15px;"></i>'+element.amount;
+            let action = document.createElement('td');
+            let view = document.createElement('button');
+            view.innerText = 'View on Blockchain';
+            view.classList.add('btn', 'btn-success', 'px-4', 'py-2', 'rad-50');
+            view.addEventListener('click', function() {
+              window.open(`https://sepolia.optimism.io/tx/${element.transactionHash}`);
+            });
+            action.appendChild(view);
+            let contribute = document.createElement('td');
+            let donate = document.createElement('button');
+            donate.innerText = 'Donate Now';
+            donate.classList.add('btn', 'btn-secondary', 'px-4', 'py-2');
+            donate.style.borderRadius = '100px';
+            contribute.appendChild(donate);
+            tr.appendChild(donor);
+            tr.appendChild(cause);
+            tr.appendChild(date);
+            tr.appendChild(amount);
+            tr.appendChild(action);
+            tr.appendChild(contribute);
+            table.appendChild(tr);
+          });
+      });
+    });
+</script>
