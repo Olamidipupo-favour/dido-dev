@@ -1901,6 +1901,7 @@ input.main-search-input:-ms-input-placeholder {
   display: inline-block;
   overflow: hidden;
   text-decoration: none;
+  cursor: pointer !important;
   text-align: center;
   min-width: 140px;
   font-weight: 700;
