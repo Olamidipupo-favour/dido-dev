@@ -117,9 +117,13 @@
       </div>
     </div>
   </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
     document.getElementById("oxa").value=window.sessionStorage.getItem("account");
-    document.getElementById("signup").addEventListener("click", function () {
+    document.getElementById("signup").addEventListener("click", function (e) {
+      e.preventDefault();
+      var but = $('#signup');
+      but.html('<span class="loader"></span>');
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
       document.getElementById("oxa").value=window.sessionStorage.getItem("account");
@@ -141,7 +145,7 @@
         .then((response) => response.json())
         .then((data) => {
             //alert("Signup successful");
-            window.location.href = "./login";
+            window.location.href = "/login";
         });
     });
   </script>
