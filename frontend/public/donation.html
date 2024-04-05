@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
 type="application/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/ipfs-mini/dist/index.min.js"></script>
 </head>
 
 <body>
@@ -110,6 +111,11 @@ type="application/javascript"></script>
             <div class="form-group mb-4" class="mb-2">
               <label for="donationDescription">Donation Description</label>
               <textarea class="form-control py-3" id="donationDescription" name="donationDescription" rows="3" placeholder="Provide description for the donation" required></textarea>
+            </div>
+
+            <div class="form-group mb-4" >
+              <label for="donationLink" class="mb-2">External Link (for evidence)</label>
+              <input type="text" class="form-control py-3" id="donationLink" name="donationLink" placeholder="Enter an external link" required>
             </div>
 
             <div class="form-group mb-4">
@@ -209,8 +215,6 @@ type="application/javascript"></script>
 <script src="./assets/js/main.js"></script>
 
 <script>
-<<<<<<< HEAD
-=======
   let name=null;
   let email=null;
 window.addEventListener('load',(e)=>{
@@ -236,6 +240,27 @@ window.addEventListener('load',(e)=>{
     }); 
 })
 console.log("check")
+
+
+// Get the input element
+const imageUpload = document.getElementById('imagePreview');
+
+// Add an event listener to detect file upload
+imageUpload.addEventListener('change', e => {
+  // Get the selected file
+   const file = imageUpload.files[0];
+
+  // Create a FileReader object
+  const reader = new FileReader();
+
+  // Set up the reader's onload event handler
+  reader.addEventListener("load", () => {
+    alert(reader.result)
+  })
+ 
+
+});
+
 async function handleSubmit(event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
@@ -243,370 +268,214 @@ async function handleSubmit(event) {
         const title = formData.get('donationTitle'); // Get the value of the 'name' input field
         const donationDescription = formData.get('donationDescription'); 
         const donationTarget = formData.get('donationTarget'); 
+        const donationLink = formData.get('donationLink');
 
-        console.log(title, donationDescription, donationTarget)
+
+
+        console.log(title, donationDescription, donationTarget,name, email , donationLink)
         // Do something with the form data
         console.log('Form submitted with name:', name);
 
+
+        const tokens = (n) => {
+            return ethers.utils.parseEther(n);
+        }
+
+      
         
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         console.log(provider)
         const network = await provider.getNetwork()
         console.log(network.chainId)
 
-        if(network.chainId !== 31337){
-          console.log("Connect to hardhat local network");
+        if(network.chainId !== 11155420){
+          console.log("Connect to OP sepolia test network");
           alert("Connect to hardhat local network");
           return
         }
 
         // connect to smart contracts (create js versions)
         const abi = [
-    {
-      "inputs": [],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [],
-      "name": "ReentrancyGuardReentrantCall",
-      "type": "error"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "Donate",
-      "type": "event"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_recipientAddress",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "approveRequestEth",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_donationId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "realMoney",
-          "type": "uint256"
-        }
-      ],
-      "name": "donateAddress",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "donated",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "donations",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "id",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "recipient",
-          "type": "address"
-        },
-        {
-          "internalType": "string",
-          "name": "fullname",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "contact",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "email",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "links",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "imagesUrl",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "target",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "raised",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bool",
-          "name": "completed",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "donationsCount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "eachDonated",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "eachTopDonor",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "eachTopDonorAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "generalDonate",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_fullname",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_contact",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_title",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_description",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_links",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_imagesUrl",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_target",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_raised",
-          "type": "uint256"
-        }
-      ],
-      "name": "postDonation",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "topDonor",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "topDonorAmount",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ]
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Donate",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_recipientAddress",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "approveRequestEth",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_donationId", "type": "uint256" },
+      { "internalType": "uint256", "name": "realMoney", "type": "uint256" }
+    ],
+    "name": "donateAddress",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "donated",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "donations",
+    "outputs": [
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "address", "name": "recipient", "type": "address" },
+      { "internalType": "string", "name": "fullname", "type": "string" },
+      { "internalType": "string", "name": "contact", "type": "string" },
+      { "internalType": "string", "name": "email", "type": "string" },
+      { "internalType": "string", "name": "title", "type": "string" },
+      { "internalType": "string", "name": "description", "type": "string" },
+      { "internalType": "string", "name": "links", "type": "string" },
+      { "internalType": "string", "name": "imagesUrl", "type": "string" },
+      { "internalType": "uint256", "name": "target", "type": "uint256" },
+      { "internalType": "uint256", "name": "raised", "type": "uint256" },
+      { "internalType": "bool", "name": "completed", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "donationsCount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "eachDonated",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "eachTopDonor",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "eachTopDonorAmount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "generalDonate",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_fullname", "type": "string" },
+      { "internalType": "string", "name": "_contact", "type": "string" },
+      { "internalType": "string", "name": "_email", "type": "string" },
+      { "internalType": "string", "name": "_title", "type": "string" },
+      { "internalType": "string", "name": "_description", "type": "string" },
+      { "internalType": "string", "name": "_links", "type": "string" },
+      { "internalType": "string", "name": "_imagesUrl", "type": "string" },
+      { "internalType": "uint256", "name": "_target", "type": "uint256" },
+      { "internalType": "uint256", "name": "_raised", "type": "uint256" }
+    ],
+    "name": "postDonation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "topDonor",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "topDonorAmount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
         
-        const dido = new ethers.Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", abi, provider)
+        const dido = new ethers.Contract("0x0290f25EA78E3d85076e085B87787C30567f63f9", abi, provider)
         // setDappazon(dappazon)
+        console.log(dido)
 
         const signer = await  provider.getSigner()
+
+        const count = await dido.donationsCount()
+        console.log(count.toNumber())
+        // for (let i = 0; i <= count; i++ ){
+        //     const donation = await dido.donations(i)
+        //     console.log(donation.id);
+        //     console.log(donation.description);
+        // }
     
-        // let transaction = await dappazon.connect(signer).postDonation( string memory _fullname, string memory _contact, string memory _email, string memory _title, string memory _description,  string memory _links, string memory _imagesUrl, uint256 _target, uint256 _raised) 
-        // await transaction.wait()
+        let target = tokens(donationTarget)
+        console.log(target)
+
+        let raised = tokens("0")
+      
+        let transaction = await dido.connect(signer).postDonation( name,"", email, title, donationDescription, donationLink, "", target, raised) 
+        await transaction.wait()
+
+        const donation = await dido.donations(0)
+        console.log(donation)
+
+        const count2 = await dido.donationsCount()
+        console.log(count2)
+
     }
-      const form =  document.getElementById('donationForm').addEventListener('submit', handleSubmit);
-postDonations();
-  async function postDonations() {
 
-    // get form details
+    const form =  document.getElementById('donationForm').addEventListener('submit', handleSubmit);
 
-
-  }
-
->>>>>>> 82449b6000237832aea8d8bc1fe99e3246fc9859
         
     
     const donTitle = document.getElementById('donationTitle');
