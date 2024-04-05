@@ -405,47 +405,6 @@ type="application/javascript"></script>
                           <tbody id="table">
                             <tr>
                               <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-<<<<<<< HEAD
-=======
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
                                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
                               
                               <td>10/12/2024</td>
@@ -455,7 +414,6 @@ type="application/javascript"></script>
                                   Now</button></td>
                             </tr>
                            
->>>>>>> 34bf6052f1c080a3ae704aac52489fabc4bafe78
 
                           </tbody>
                         </table>
@@ -600,8 +558,6 @@ type="application/javascript"></script>
         <div class="row">
           <div class="col-xxl-12 text-center">
             <p>
-              Copyright © 2023 All Rights Reserved by
-              <strong><a href="index-2#">BlockWiz</a></strong>
               Copyright © 2024 All Rights Reserved by
               <strong><a href="./">BlockWiz</a></strong>
             </p>
@@ -658,6 +614,9 @@ type="application/javascript"></script>
             let view = document.createElement('button');
             view.innerText = 'View on Blockchain';
             view.classList.add('btn', 'btn-success', 'px-4', 'py-2', 'rad-50');
+            view.addEventListener('click', function() {
+              window.open(`https://sepolia.optimism.io/tx/${element.transactionHash}`);
+            });
             action.appendChild(view);
             let contribute = document.createElement('td');
             let donate = document.createElement('button');
