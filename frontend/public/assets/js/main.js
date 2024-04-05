@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   sessionStorage.setItem('account', accounts[0]);
   if(address){
     document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
+    document.getElementById('mwallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
   } else {
     alert('Connect to metamask');
   }
@@ -40,6 +41,7 @@ async function connectWallet() {
     console.log('Connected to MetaMask with address:', address);
 sessionStorage.setItem('account', accounts[0]);
     document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
+    document.getElementById('mwallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
 
 
     
