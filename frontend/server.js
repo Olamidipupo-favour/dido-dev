@@ -24,6 +24,9 @@ app.get("/transactions", (req, res) => {
 app.get("/terms", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "terms.html"));
 });
+app.get("/request_donation", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "donation.html"));
+});
 app.get("/cause-details", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "cause-details.html"));
 });
