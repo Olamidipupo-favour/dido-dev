@@ -27,6 +27,9 @@ app.get('/terms', (req, res) => {
 app.get('/cause-details', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'cause-details.html'));
 });
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
