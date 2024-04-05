@@ -76,13 +76,13 @@
                 />
               </div>
               <div class="form-group">
-                <label for="phone" class="sr-only">Phone number</label>
+                <label for="phone" class="sr-only">Oxadress</label>
                 <input
                   type="phone"
                   name="phone"
-                  id="phone"
+                  id="oxa"
                   class="form-control"
-                  placeholder="Phone number"
+                  placeholder="ox......."
                 />
               </div>
               <div class="form-group mb-3">
@@ -120,7 +120,7 @@
     document.getElementById("signup").addEventListener("click", function () {
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
-      let phone = document.getElementById("phone").value;
+      let oxadress = document.getElementById("oxa").value;
       let password = document.getElementById("password").value;
       let url = "https://dido-dev-backend.onrender.com";
       fetch(`${url}/api/register`, {
@@ -129,17 +129,17 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullname: fullname,
-          email: email,
-          phone: phone,
+          name: fullname,
+          username: email,
           password: password,
+          oxadress: oxa,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.status === "success") {
             alert("Signup successful");
-            window.location.href = "./login.html";
+            window.location.href = "./login";
           } else {
             alert("Signup failed");
           }
