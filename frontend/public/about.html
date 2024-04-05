@@ -42,10 +42,10 @@
                     <ul>
                       <li><a href="./">Home</a></li>
 
-                      <li class="active"><a href="./about.html">About</a></li>
-                      <li><a href="./cause.html">Cause</a></li>
-                      <li><a href="./transaction.html">Transactions</a></li>
-                      <li><a href="./terms.html">T&C</a></li>
+                      <li class="active"><a href="/about">About</a></li>
+                      <li><a href="/cause">Cause</a></li>
+                      <li><a href="/transactions">Transactions</a></li>
+                      <li><a href="/terms">T&C</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -54,11 +54,9 @@
                 <div
                   class="header-right d-flex align-items-center justify-content-end"
                 >
-                  <div class="header-sing d-inline-block d-none d-xl-block">
-                    <a class="g_btn hbtn_1 to_right1 rad-30"
-                      >Connect Wallet<span></span
-                    ></a>
-                  </div>
+                <div class="header-sing d-inline-block d-none d-xl-block">
+                  <a  onclick="connectWallet()"  id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
+                </div>
                   <div
                     class="hamburger-menu menu-bar info-bar d-sm-block ml-20"
                   >
@@ -472,3 +470,8 @@
     </div>
   </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./assets/js/main.js"></script>
