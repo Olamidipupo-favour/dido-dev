@@ -17,6 +17,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
+</script>
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+type="application/javascript"></script>
 </head>
 
 <body>
@@ -44,10 +47,10 @@
                 </nav>
               </div>
             </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
+            <div onclick="connectWallet()" class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
               <div class="header-right d-flex align-items-center justify-content-end">
                 <div class="header-sing d-inline-block d-none d-xl-block">
-                  <a class="g_btn hbtn_1 to_right1 rad-30">Connect Wallet<span></span></a>
+                  <a id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
                 </div>
                 <div class="hamburger-menu menu-bar info-bar d-sm-block ml-20">
                   <button class="hamburger-btn open-mobile-menu">
@@ -623,6 +626,75 @@
   </footer>
   </div>
 
+  <script>
+    console.log("check")
+
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+    // Your function code here
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    let address = accounts[0];
+    console.log('Connected to MetaMask with address:', address);
+    sessionStorage.setItem('account', accounts[0]);
+    if(address){
+      document.getElementById('wallet_').innerText = address.slice(0, 6) + '...' + address.slice(38, 42);
+    } else {
+      alert('Connect to metamask');
+    }
+    console.log('DOM fully loaded and parsed');
+  });
+
+    async function connectWallet() {
+      console.log('checkk2')
+      if (typeof window.ethereum === 'undefined') {
+        alert('MetaMask is not installed');
+        return;
+      }
+
+      try {
+      
+        // Request access to the user's MetaMask account
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        let address = accounts[0];
+        console.log('Connected to MetaMask with address:', address);
+    sessionStorage.setItem('account', accounts[0]);
+        document.getElementById('wallet_').innerText = address.slice(0, 6) + '...' + address.slice(38, 42);
+
+
+        
+        // Add Op sepolia test network
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: 11155420,
+              chainName: 'Optimism Sepolia',
+              nativeCurrency: {
+                name: 'Ether',
+                symbol: 'ETH',
+                decimals: 18,
+              },
+              rpcUrls: ['https://sepolia.optimism.io'],
+              blockExplorerUrls: ['https://optimism-sepolia.blockscout.com'],
+            },
+          ],
+        });
+
+        
+
+        console.log('Op sepolia Test Network added to MetaMask');
+      } catch (error) {
+        console.error('Error connecting to MetaMask or adding test network:', error);
+      }
+    }
+    
+    function getAddress() {
+      var data = sessionStorage.getItem('account');
+    console.log(data); // 
+    }
+ </script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="./assets/js/main.js"></script>
 </body>
