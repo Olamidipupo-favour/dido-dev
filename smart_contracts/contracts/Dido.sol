@@ -23,6 +23,7 @@ contract Dido is ReentrancyGuard {
         bool completed;
     } 
 
+
     mapping (address => uint256) public donated;
     mapping (uint256 => Donation) public donations;
 
@@ -38,6 +39,9 @@ contract Dido is ReentrancyGuard {
 
     uint256 public donationsCount = 0;
 
+    event Donate(address from, address to, uint256 amount);
+
+
     constructor () {
         owner = payable(msg.sender);
     }
@@ -49,6 +53,8 @@ contract Dido is ReentrancyGuard {
             topDonor = msg.sender;
             topDonorAmount = donated[msg.sender];
         }
+
+        emit Donate(msg.sender, address(this), msg.value);
     }
 
     function postDonation( string memory _fullname, string memory _contact, string memory _email, string memory _title, string memory _description,  string memory _links, string memory _imagesUrl, uint256 _target, uint256 _raised) public {
@@ -89,6 +95,8 @@ contract Dido is ReentrancyGuard {
         if(donations[_donationId].raised >= donations[_donationId].target){
             donations[_donationId].completed = true;
         }   
+
+        emit Donate(msg.sender, donations[_donationId].recipient, realMoney);
 
     }
 
