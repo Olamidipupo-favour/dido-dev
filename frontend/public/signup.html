@@ -26,6 +26,18 @@
       rel="stylesheet"
     />
     <title>Decentralized Donation Hub: Create an account</title>
+    <style>
+      .loader {
+        width: 25px;
+        height: 25px;
+        border: 5px solid rgb(37, 99, 235);
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+    </style>
   </head>
 
   <body>
@@ -63,6 +75,7 @@
                   id="fullname"
                   class="form-control"
                   placeholder="Full name"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -73,6 +86,7 @@
                   id="email"
                   class="form-control"
                   placeholder="Email"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -93,18 +107,16 @@
                   id="password"
                   class="form-control"
                   placeholder="Password"
+                  required
                 />
               </div>
+              <div id="Serrors" class="text-danger"></div>
               <div
                 class="d-flex justify-content-between align-items-center mb-5"
               >
-                <input
-                  name="signup"
-                  id="signup"
-                  class="btn login-btn py-3"
-                  type="button"
-                  value="Signup"
-                />
+              <button id="signup" class="login-btn btn py-3" type="submit">
+                Sign up
+              </button>
               </div>
             </form>
             <p class="login-wrapper-footer-text">
@@ -116,6 +128,11 @@
       </div>
     </div>
   </body>
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"
+></script>
   <script>
     var oxa = sessionStorage.getItem('account');
     var address = document.getElementById('oxa');
@@ -171,7 +188,12 @@
         console.error('Error connecting to MetaMask or adding test network:', error);
       }
     }
-    document.getElementById("signup").addEventListener("click", function () {
+    let signup_button = document.getElementById("signup");
+    signup_button.addEventListener("click", (e) => {
+      e.preventDefault();
+      var but = $("#signup");
+      var eS = $('#Serrors');
+      but.html('<span class="loader"></span>');
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
       let oxadress = getAddress();
@@ -195,9 +217,11 @@
             alert("Signup successful");
             window.location.href = "./login";
           } else {
-            alert("Signup failed");
+            eS.html(data.message);
           }
-        });
+          but.html(`Sign Up`);
+        })
+        .catch((err) => console.log(err));
     });
   </script>
 </html>
