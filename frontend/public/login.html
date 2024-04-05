@@ -26,6 +26,19 @@
       rel="stylesheet"
     />
     <title>Decentralized Donation Hub: Login</title>
+    <style>
+        .loader {
+        width: 25px;
+        height: 25px;
+        border: 5px solid rgb(37, 99, 235);
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+    </style>
   </head>
 
   <body>
@@ -81,29 +94,29 @@
               <div
                 class="d-flex justify-content-between align-items-center mt-2 mb-2"
               >
-                <input
-                  name="login"
+                <button
                   id="login"
                   class="login-btn btn"
-                  type="button"
-                  value="Login"
-                />
+                  type="submit"
+                >Login</button>
               </div>
             </form>
             <p class="login-wrapper-footer-text">
               Need an account?
-              <a href="signup.html" class="text-reset">Signup here</a>
+              <a href="signup" class="text-reset">Signup here</a>
             </p>
           </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
     let url="https://dido-dev-backend.onrender.com"
-    let login_button=document.getElementById("login")
+    let login_button = document.getElementById("login")
     login_button.addEventListener("click",()=>{
-      //do signin
+      var but = $('#login');
+      but.html('<span class="loader"></span>');
       let password=document.getElementById("password").value
       let email=document.getElementById("email").value
       fetch(`${url}/api/login`,{
@@ -119,8 +132,10 @@
         console.log(data)
         //if status code is 200 then redirect to index.html
           window.localStorage.setItem("token",data.access_token)
-          window.location.href="index.html"
+          window.location.href="/"
         
+        window.localStorage.setItem("token",data.access_token)
+        window.location.href="/"
       }).catch(err=>console.log(err)
       )
     })
