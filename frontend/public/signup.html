@@ -114,9 +114,9 @@
               <div
                 class="d-flex justify-content-between align-items-center mb-5"
               >
-              <button id="signup" class="login-btn btn py-3" type="submit">
-                Sign up
-              </button>
+                <button id="signup" class="login-btn btn py-3" type="submit">
+                  Sign up
+                </button>
               </div>
             </form>
             <p class="login-wrapper-footer-text">
@@ -129,14 +129,14 @@
     </div>
   </body>
   <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"
-></script>
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
   <script>
-    var oxa = sessionStorage.getItem('account');
-    var address = document.getElementById('oxa');
-    var signBut = document.getElementById('signup');
+    var oxa = sessionStorage.getItem("account");
+    var address = document.getElementById("oxa");
+    var signBut = document.getElementById("signup");
     if (oxa !== null) {
       address.value = oxa;
       address.disabled = true;
@@ -147,58 +147,63 @@
     }
 
     function getAddress() {
-      var data = sessionStorage.getItem('account');
+      var data = sessionStorage.getItem("account");
       return data;
     }
 
     async function connectWallet() {
-      console.log('checkk2')
-      if (typeof window.ethereum === 'undefined') {
-        alert('MetaMask is not installed');
+      console.log("checkk2");
+      if (typeof window.ethereum === "undefined") {
+        alert("MetaMask is not installed");
         return;
       }
       try {
         // Request access to the user's MetaMask account
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
         let address = accounts[0];
-        console.log('Connected to MetaMask with address:', address);
-        sessionStorage.setItem('account', accounts[0]);
+        console.log("Connected to MetaMask with address:", address);
+        sessionStorage.setItem("account", accounts[0]);
         // location.reload();
         // document.getElementById('wallet_').innerText = address.slice(0, 6) + '...' + address.slice(38, 42);
-        
+
         // Add Op sepolia test network
         await window.ethereum.request({
-          method: 'wallet_addEthereumChain',
+          method: "wallet_addEthereumChain",
           params: [
             {
               chainId: 11155420,
-              chainName: 'OP Sepolia',
+              chainName: "OP Sepolia",
               nativeCurrency: {
-                name: 'Ether',
-                symbol: 'ETH',
+                name: "Ether",
+                symbol: "ETH",
                 decimals: 18,
               },
-              rpcUrls: ['https://sepolia.optimism.io'],
-              blockExplorerUrls: ['https://sepolia-optimism.etherscan.io'],
+              rpcUrls: ["https://sepolia.optimism.io"],
+              blockExplorerUrls: ["https://sepolia-optimism.etherscan.io"],
             },
           ],
         });
-        console.log('Op sepolia Test Network added to MetaMask');
+        console.log("Op sepolia Test Network added to MetaMask");
       } catch (error) {
-        console.error('Error connecting to MetaMask or adding test network:', error);
+        console.error(
+          "Error connecting to MetaMask or adding test network:",
+          error
+        );
       }
     }
     let signup_button = document.getElementById("signup");
     signup_button.addEventListener("click", (e) => {
       e.preventDefault();
       var but = $("#signup");
-      var eS = $('#Serrors');
+      var eS = $("#Serrors");
       but.html('<span class="loader"></span>');
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
       let oxadress = getAddress();
       let password = document.getElementById("password").value;
-      let url = "https://dido-dev-backend.onrender.com";
+      let url = "https://basic-nada-blockwiz.koyeb.app";
       fetch(`${url}/api/register`, {
         method: "POST",
         headers: {
