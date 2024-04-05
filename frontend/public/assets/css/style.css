@@ -51,7 +51,7 @@ table td {
     padding: 28px;
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 855px) {
   .intro-section {
     min-height: auto;
   }
@@ -63,10 +63,10 @@ table td {
   margin-left: 80px;
 }
 .brand-wrapper .logo {
-  height: 35px;
+  height: 90px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1100px) {
   .brand-wrapper {
     margin-bottom: 35px;
   }
@@ -145,9 +145,12 @@ table td {
   width: 400px;
   max-width: 100%;
 }
-@media (max-width: 575px) {
-  .login-wrapper {
-    width: 100%;
+@media (max-width: 855px) {
+  .intro-section {
+    display: none;
+  }
+  .form-section {
+    margin: 200px auto;
   }
 }
 .login-wrapper .form-control {
@@ -156,7 +159,7 @@ table td {
   border-radius: 0;
   font-size: 14px;
   font-weight: bold;
-  padding: 15px 10px;
+  padding: 25px 10px;
   margin-bottom: 7px;
 }
 .login-wrapper .form-control::-webkit-input-placeholder {
@@ -185,13 +188,14 @@ table td {
   background-color: #000 !important;
   border-radius: 0;
   font-size: 20px;
+  cursor: pointer;
   font-weight: bold;
   width: 100%;
   color: #fff !important;
 }
 .login-btn:hover {
-  border: 1px solid #000;
-  background-color: #fff;
+  border: 1px solid #000 !important;
+  background-color: #fff !important;
   color: #000;
 }
 
