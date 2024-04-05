@@ -398,77 +398,13 @@ type="application/javascript"></script>
                               <th scope="col" style="min-width: 200px">Contribute</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody id="table">
                             <tr>
                               <td>Naheem Olaide</td>
                               <td>Kidney Surgery</td>
                               <td>10/12/2024</td>
                               <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
                               <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50"> View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
-                            <tr>
-                              <td>Naheem Olaide</td>
-                              <td>Kidney Surgery</td>
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2" style="border-radius: 100px;">View on
-                                  Blockchain</button></td>
                               <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
                                   Now</button></td>
                             </tr>
@@ -616,7 +552,7 @@ type="application/javascript"></script>
         <div class="row">
           <div class="col-xxl-12 text-center">
             <p>
-              Copyright © 2021 All Rights Reserved by
+              Copyright © 2023 All Rights Reserved by
               <strong><a href="index-2#">BlockWiz</a></strong>
             </p>
           </div>
@@ -644,7 +580,52 @@ type="application/javascript"></script>
       alert('Connect to metamask');
     }
     console.log('DOM fully loaded and parsed');
-  });
+    //gather data on past 10 transactions
+    //fetch data from backend
+    //display data on the table
+    //fetch data from backend
+    let url = "https://dido-dev-backend.onrender.com";
+    fetch(`${url}/api/all-transactions`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+         console.log(data.donations);
+         let table=document.querySelector('tbody');
+          data.donations.forEach((element) => {
+            let tr = document.createElement('tr');
+            let donor = document.createElement('td');
+            donor.innerText = element.sender;
+            let cause = document.createElement('td');
+            cause.innerText = element.cause;
+            let date = document.createElement('td');
+            date.innerText = element.date;
+            let amount = document.createElement('td');
+            amount.innerHTML = '<i class="fas fa-coins" style="padding-right: 15px;"></i>'+element.amount;
+            let action = document.createElement('td');
+            let view = document.createElement('button');
+            view.innerText = 'View on Blockchain';
+            view.classList.add('btn', 'btn-success', 'px-4', 'py-2', 'rad-50');
+            action.appendChild(view);
+            let contribute = document.createElement('td');
+            let donate = document.createElement('button');
+            donate.innerText = 'Donate Now';
+            donate.classList.add('btn', 'btn-secondary', 'px-4', 'py-2');
+            donate.style.borderRadius = '100px';
+            contribute.appendChild(donate);
+            tr.appendChild(donor);
+            tr.appendChild(cause);
+            tr.appendChild(date);
+            tr.appendChild(amount);
+            tr.appendChild(action);
+            tr.appendChild(contribute);
+            table.appendChild(tr);
+          });
+      });
+    });
 
     async function connectWallet() {
       console.log('checkk2')
