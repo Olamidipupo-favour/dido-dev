@@ -208,6 +208,28 @@
 
 <script>
 
+console.log("check")
+
+      const provider = new ethers.BrowserProvider(window.ethereum);
+        console.log(provider)
+        const network = await provider.getNetwork()
+        console.log(network.chainId)
+
+        if(network.chainId !== 31337){
+          console.log("Connect to hardhat local network")
+          return
+        }
+
+        // connect to smart contracts (create js versions)
+        // const dappazon = new ethers.Contract(config[31337].dappazon.address, Dappazon, provider)
+        // setDappazon(dappazon)
+
+        const signer = await  provider.getSigner()
+    
+        console.log(signer)
+    // let transaction = await dappazon.connect(signer).buy(item.id, {value: item.cost})
+    // await transaction.wait()
+    
       const donTitle = document.getElementById('donationTitle');
     const charCount = document.getElementById('charCount');
 
