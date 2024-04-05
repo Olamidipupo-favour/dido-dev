@@ -26,7 +26,7 @@
           <div class="row align-items-center">
             <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
               <div class="logo">
-                <a href="index.html"><img src="img/logo/logo.png" alt="" /></a>
+                <a href="./"><img src="img/logo/logo.png" alt="" /></a>
               </div>
             </div>
             <div class="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -64,7 +64,7 @@
         <div class="offset-widget offset-logo mb-30 pb-20">
           <div class="row align-items-center">
             <div class="col-8">
-              <a class="mobile_logo" href="index.html"><img src="img/logo/logo.png" alt="Logo" /></a>
+              <a class="mobile_logo" href="/"><img src="img/logo/logo.png" alt="Logo" /></a>
             </div>
             <div class="col-4 text-end">
               <button class="side-info-close">
@@ -76,12 +76,16 @@
        
         <div class="mobile-menu mean-menu">
           <ul class="metismenu text-muted" id="metismenu">
-            <li ><a href="./">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
 
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./cause.html">Cause</a></li>
-            <li class="active"><a href="./transaction.html">Transactions</a></li>
-            <li><a href="./terms.html">T&C</a></li>
+            <li><a href="/about" style="list-style-type: none !important;">About</a></li>
+            <li><a href="/cause">Cause</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/terms">T&C</a></li>
+            <li class="mt-20">
+              
+                  <a onclick="connectWallet()" id="wallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -99,7 +103,7 @@
             <div class="col-xl-12">
               <div class="breadcrumb_section">
                 <ul class="breadcrumb-list volunteer_breadcrumb">
-                  <li class="bhas_border"><a href="index.html">Home</a></li>
+                  <li class="bhas_border"><a href="./">Home</a></li>
                   <li><span class="active">Transactions</span></li>
                 </ul>
                 <div class="breadcrumb_title">
@@ -134,10 +138,10 @@
                             style="position: relative"
                           >
                             <table class="table table-striped mb-0">
-                              <thead style="background-color: #263b5c">
-                                                            <tr>
+                              <thead style="background-color: #263b5c;">
+                            <tr>
                               <th scope="col" style="min-width: 200px">Donor Name</th>
-                              <th scope="col" style="min-width: 200px">Donation Tag</th>
+                              <th scope="col" style="min-width: 200px">Donation Title</th>
                               <th scope="col" style="min-width: 100px">Date</th>
                               <th scope="col" style="min-width: 200px"> <i class="fab fa-ethereum" style="padding-right: 15px;"></i> Amount (ETH)
                                 <i></i>
@@ -145,225 +149,57 @@
                               <th scope="col" style="min-width: 250px">Action</th>
                               <th scope="col" style="min-width: 200px">Contribute</th>
                             </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2 rad-50"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Naheem Olaide</td>
-                                  <td>Kidney Surgery</td>
-                                  <td>10/12/2024</td>
-                                  <td>
-                                    <i
-                                      class="fas fa-coins"
-                                      style="padding-right: 15px"
-                                    ></i
-                                    >20.000
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-success px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      View on Blockchain
-                                    </button>
-                                  </td>
-                                  <td>
-                                    <button
-                                      class="btn btn-secondary px-4 py-2"
-                                      style="border-radius: 100px"
-                                    >
-                                      Dontate Now
-                                    </button>
-                                  </td>
-                                </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Naheem Olaide</td>
+                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
+                              <td>10/12/2024</td>
+                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
+                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
+                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
+                                  Now</button></td>
+                            </tr>
+                            <tr>
+                              <td>Naheem Olaide</td>
+                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
+                              
+                              <td>10/12/2024</td>
+                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
+                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
+                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
+                                  Now</button></td>
+                            </tr>
+                            <tr>
+                              <td>Naheem Olaide</td>
+                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
+                              
+                              <td>10/12/2024</td>
+                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
+                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
+                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
+                                  Now</button></td>
+                            </tr>
+                            <tr>
+                              <td>Naheem Olaide</td>
+                              <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
+                              
+                              <td>10/12/2024</td>
+                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
+                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
+                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
+                                  Now</button></td>
+                            </tr>
+                            <tr>
+                              <td>Naheem Olaide</td>
+                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
+                              
+                              <td>10/12/2024</td>
+                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
+                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
+                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
+                                  Now</button></td>
+                            </tr>
                               </tbody>
                             </table>
                             <a
@@ -371,7 +207,7 @@
                               style="margin: 30px; float: right"
                               href="./transaction.html"
                             >
-                              View All Transactions <span></span>
+                              View More Transactions <span></span>
                             </a>
                           </div>
                         </div>
@@ -387,7 +223,7 @@
 
 
     </div>
-  <footer>
+ <footer>
     <div class="footer_top_area footer_top_2">
       <div class="footer_top_wrapper">
         <div class="container">
@@ -395,7 +231,7 @@
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7">
               <div class="footer_widget footer_about ">
                 <div class="footer_logo mb-35">
-                  <a class="animation" href="index.html"><img src="img/logo/logo_white.png" alt="img" /></a>
+                  <a class="animation" href="/"><img src="img/logo/logo_white.png" alt="img" /></a>
                 </div>
 
               </div>
@@ -407,10 +243,10 @@
                 </div>
                 <div class="footer_links footer_links_2">
                   <ul>
-                    <li><a href="./about.html">About Us</a></li>
-                    <li><a href="./donation.html">Donations Transactions</a></li>
-                    <li><a href="./policy.html">Policy</a></li>
-                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/cause">Causes for Donation</a></li>
+                    <li><a href="/transactions">Donation Transactions</a></li>
+                    <li><a href="/terms">Terms & Condition</a></li>
                   </ul>
                 </div>
               </div>
@@ -423,9 +259,9 @@
                   donations through blockchain technology.
                 </p>
                 <div class="footer_social_2">
-                  <a class="facebook" href="index-2#"><i class="fab fa-facebook-f"></i></a><a class="twitter"
-                    href="index-2#"><i class="fab fa-twitter"></i></a><a class="behance" href="index-2#"><i
-                      class="fab fa-instagram"></i></a><a class="youtube" href="index-2#"><i
+                  <a class="facebook" href="#!"><i class="fab fa-facebook-f"></i></a><a class="twitter"
+                    href="#!"><i class="fab fa-twitter"></i></a><a class="instagram" href="#!"><i
+                      class="fab fa-instagram"></i></a><a class="youtube" href="#!"><i
                       class="fab fa-youtube"></i></a>
                 </div>
 
@@ -443,8 +279,8 @@
         <div class="row">
           <div class="col-xxl-12 text-center">
             <p>
-              Copyright © 2021 All Rights Reserved by
-              <strong><a href="index-2#">BlockWiz</a></strong>
+              Copyright © 2024 All Rights Reserved by
+              <strong><a href="./">BlockWiz</a></strong>
             </p>
           </div>
         </div>

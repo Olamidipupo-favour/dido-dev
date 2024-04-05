@@ -33,13 +33,14 @@
       <div class="row">
         <div class="col-sm-6 col-md-7 intro-section">
           <div class="brand-wrapper">
-            <a href="index.html"><img src="img/logo/logo.png" alt="" /></a>
+            <a href="./"><img src="img/logo/logo.png" alt="" /></a>
           </div>
           <div class="intro-content-wrapper">
-            <h1 class="intro-title">Welcome to website !</h1>
-            <p class="intro-text">
+            <h1 class="intro-title mb-20">Sign Up to Dido !</h1>
+            <p class="intro-text py-3">
               Welcome to DiDo - Decentralized Donating system, where you can
-              make a difference through blockchain technology.
+              make a significant impact by leveraging cutting-edge blockchain
+              technology to support various causes and initiatives.
             </p>
             <a href="./about.html" class="btn btn-read-more">Read more</a>
           </div>
@@ -83,6 +84,7 @@
                   id="oxa"
                   class="form-control"
                   placeholder="ox......."
+                  disabled
                 />
               </div>
               <div class="form-group mb-3">
@@ -96,7 +98,7 @@
                 />
               </div>
               <div
-                class="d-flex justify-content-between align-items-center mb-5"
+                class="d-flex justify-content-between align-items-center mb-4"
               >
                 <input
                   name="signup"
@@ -116,11 +118,21 @@
       </div>
     </div>
   </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
+    document.getElementById("oxa").value=window.sessionStorage.getItem("account");
+    document.getElementById("signup").addEventListener("click", function (e) {
+      e.preventDefault();
+      var but = $('#signup');
+      but.html('<span class="loader"></span>');
+    document.getElementById("oxa").value =
+      window.sessionStorage.getItem("account");
     document.getElementById("signup").addEventListener("click", function () {
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
-      let oxadress = document.getElementById("oxa").value;
+      document.getElementById("oxa").value =
+        window.sessionStorage.getItem("account");
+      let oxa = document.getElementById("oxa").value;
       let password = document.getElementById("password").value;
       let url = "https://dido-dev-backend.onrender.com";
       fetch(`${url}/api/register`, {
@@ -137,13 +149,12 @@
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.status === "success") {
-            alert("Signup successful");
-            window.location.href = "./login";
-          } else {
-            alert("Signup failed");
-          }
+            //alert("Signup successful");
+            window.location.href = "/login";
+          //alert("Signup successful");
+          window.location.href = "./login";
         });
     });
+  });
   </script>
 </html>

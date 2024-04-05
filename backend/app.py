@@ -24,7 +24,7 @@ from gql.transport.aiohttp import AIOHTTPTransport
 
 #setting up app instance 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['JWT_SECRET_KEY']=os.environ.get('JWT_SECRET')
 app.config['JWT_ACCESS_TOKEN_EXPIRES']=int(os.environ.get('jwt_expiry_time'))
 jwt=JWTManager(app)
@@ -95,7 +95,7 @@ class GetDonations(Resource):
         subgraph_gql_query= gql(
 """
 {
-  transfers(first: 5) {
+  transfers(first: 10) {
     id
     sender
     receiver
@@ -107,6 +107,16 @@ class GetDonations(Resource):
 }
 """)
         donations=gql_client.execute(subgraph_gql_query).get('transfers')
+        for i in donations:
+            #fetch sender name from db
+            try:
+                i['sender']=client.users.dido.find_one({'oxadress':i['sender']}).get('name')
+            except:
+                pass
+            try:
+                i['amount']=str((float(i['amount'])/(10**18)))
+            except:
+                pass
         return {"donations":donations}, 200   
 class IsLoggedIn(Resource):
     @jwt_required()
