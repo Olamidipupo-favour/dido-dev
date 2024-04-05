@@ -99,4 +99,30 @@
       </div>
     </div>
   </body>
+  <script>
+    let url="https://dido-dev-backend.onrender.com/"
+    let login_button=document.getElementById("login")
+    login_button.addEventListener("click",()=>{
+      //do signin
+      let password=document.getElementById("password").value
+      let email=document.getElementById("email").value
+      fetch(`${url}login`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          username:email,
+          password:password
+        })
+      }).then(res=>res.json()).then(data=>{
+        console.log(data)
+        if(data.status=="success"){
+          alert("logged in")
+          window.location.href="index.html"
+        }
+      }).catch(err=>console.log(err)
+      )
+    })
+  </script>
 </html>
