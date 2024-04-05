@@ -403,16 +403,6 @@ type="application/javascript"></script>
                             </tr>
                           </thead>
                           <tbody id="table">
-                            <tr>
-                              <td>Naheem Olaide</td>
-                               <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;">Kidney SurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgerySurgery</td>
-                              
-                              <td>10/12/2024</td>
-                              <td> <i class="fas fa-coins" style="padding-right: 15px;"></i>20.000</td>
-                              <td><button class="btn btn-success px-4 py-2 rad-50">View on Blockchain</button></td>
-                              <td><button class="btn btn-secondary px-4 py-2" style="border-radius: 100px;">Dontate
-                                  Now</button></td>
-                            </tr>
                            
 
                           </tbody>
@@ -571,19 +561,18 @@ type="application/javascript"></script>
   <script>
     console.log("check")
 
-
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    let address = accounts[0];
-    console.log('Connected to MetaMask with address:', address);
-    sessionStorage.setItem('account', accounts[0]);
-    if(address){
-      document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
-    } else {
-      alert('Connect to metamask');
-    }
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      let address = accounts[0];
+      console.log('Connected to MetaMask with address:', address);
+      sessionStorage.setItem('account', accounts[0]);
+      if(address){
+        document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
+      } else {
+        alert('Connect to metamask');
+      }
     console.log('DOM fully loaded and parsed');
     //gather data on past 10 transactions
     //fetch data from backend
