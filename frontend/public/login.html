@@ -119,7 +119,7 @@
         console.log(data)
         //if status code is 200 then redirect to index.html
           window.localStorage.setItem("token",data.access_token)
-          window.location.href="index"
+          window.location.href="/"
         
       }).catch(err=>console.log(err)
       )
