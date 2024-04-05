@@ -59,7 +59,8 @@ table td {
 
 .brand-wrapper {
   z-index: 10000;
-  margin-left: 30px;
+  margin-top: 40px;
+  margin-left: 80px;
 }
 .brand-wrapper .logo {
   height: 35px;
@@ -72,10 +73,10 @@ table td {
 }
 
 .intro-content-wrapper {
-  width: 410px;
+  width: 65%;
   max-width: 100%;
   z-index: 1000;
-  margin-left: 40px;
+  margin-left: 80px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -109,7 +110,7 @@ table td {
 }
 .intro-section-footer {
   z-index: 10000;
-  margin-left: 50px;
+  margin-left: 80px;
 }
 
 .intro-section-footer .footer-nav a {
@@ -141,7 +142,7 @@ table td {
 }
 
 .login-wrapper {
-  width: 300px;
+  width: 400px;
   max-width: 100%;
 }
 @media (max-width: 575px) {
@@ -181,7 +182,6 @@ table td {
 }
 
 .login-btn {
-  padding: 13px 30px;
   background-color: #000 !important;
   border-radius: 0;
   font-size: 20px;
