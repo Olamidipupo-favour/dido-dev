@@ -59,12 +59,12 @@
         </div>
       </div>
     </header>
-    <div class="fix d-lg-none">
+     <div class="fix d-lg-none">
       <div class="side-info">
         <div class="offset-widget offset-logo mb-30 pb-20">
           <div class="row align-items-center">
             <div class="col-8">
-              <a class="mobile_logo" href="index.html"><img src="img/logo/logo.png" alt="Logo" /></a>
+              <a class="mobile_logo" href="/"><img src="img/logo/logo.png" alt="Logo" /></a>
             </div>
             <div class="col-4 text-end">
               <button class="side-info-close">
@@ -76,12 +76,16 @@
        
         <div class="mobile-menu mean-menu">
           <ul class="metismenu text-muted" id="metismenu">
-            <li><a href="./">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
 
-            <li><a href="./about.html">About</a></li>
-            <li class="active"><a href="./cause.html">Cause</a></li>
-            <li><a href="./transaction.html">Transactions</a></li>
-            <li><a href="./terms.html">T&C</a></li>
+            <li><a href="/about" style="list-style-type: none !important;">About</a></li>
+            <li><a href="/cause">Cause</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/terms">T&C</a></li>
+            <li class="mt-20">
+              
+                  <a onclick="connectWallet()" id="wallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
+            </li>
           </ul>
         </div>
       </div>
