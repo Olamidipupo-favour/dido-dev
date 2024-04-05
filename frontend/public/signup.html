@@ -116,4 +116,34 @@
       </div>
     </div>
   </body>
+  <script>
+    document.getElementById("signup").addEventListener("click", function () {
+      let fullname = document.getElementById("fullname").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+      let password = document.getElementById("password").value;
+      let url = "https://dido-dev-backend.onrender.com";
+      fetch(`${url}/api/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname: fullname,
+          email: email,
+          phone: phone,
+          password: password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
+            alert("Signup successful");
+            window.location.href = "./login.html";
+          } else {
+            alert("Signup failed");
+          }
+        });
+    });
+  </script>
 </html>
