@@ -35,10 +35,10 @@
                   <ul>
                     <li><a href="./">Home</a></li>
 
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./cause.html">Cause</a></li>
-                    <li><a href="./transaction.html">Transactions</a></li>
-                    <li><a href="./terms.html">T&C</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/cause">Cause</a></li>
+                    <li><a href="/transaction">Transactions</a></li>
+                    <li><a href="/terms">T&C</a></li>
                   </ul>
                 </nav>
               </div>
@@ -46,7 +46,7 @@
             <div class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
               <div class="header-right d-flex align-items-center justify-content-end">
                 <div class="header-sing d-inline-block d-none d-xl-block">
-                  <a class="g_btn hbtn_1 to_right1 rad-30">Connect Wallet<span></span></a>
+                  <a  onclick="connectWallet()"  id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
                 </div>
                 <div class="hamburger-menu menu-bar info-bar d-sm-block ml-20">
                   <button class="hamburger-btn open-mobile-menu">
@@ -125,7 +125,7 @@
             <div class="alert alert-info" role="alert">
               Kindly note that all donations will go to the address you connected via Metamask.
               <br>
-              Your current address: <span id="currentAddress">0x943ndsdjd...</span>
+              Your current address: <span id="currentAddress"></span>
             </div>
 
             <button type="submit" class="btn py-3 px-5 mt-10 mb-20" style="background-color: #263B5C;color: #fff;">Submit Request</button>
@@ -204,6 +204,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./assets/js/main.js"></script>
 
 <script>
 
@@ -224,8 +225,13 @@
     };
     reader.readAsDataURL(event.target.files[0]);
   }
+  
+  function getAddress() {
+      var data = sessionStorage.getItem('account');
+      return data;
+    }
 
-  var currentAddress = "0x943ndsdjd...";
+  var currentAddress = getAddress();
   document.getElementById('currentAddress').innerText = currentAddress;
 </script>
 
