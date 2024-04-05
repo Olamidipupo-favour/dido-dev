@@ -26,7 +26,7 @@
           <div class="row align-items-center">
             <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
               <div class="logo">
-                <a href="index.html"><img src="img/logo/logo.png" alt="" /></a>
+                <a href="./"><img src="img/logo/logo.png" alt="" /></a>
               </div>
             </div>
             <div class="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -64,7 +64,7 @@
         <div class="offset-widget offset-logo mb-30 pb-20">
           <div class="row align-items-center">
             <div class="col-8">
-              <a class="mobile_logo" href="index.html"><img src="img/logo/logo.png" alt="Logo" /></a>
+              <a class="mobile_logo" href="/"><img src="img/logo/logo.png" alt="Logo" /></a>
             </div>
             <div class="col-4 text-end">
               <button class="side-info-close">
@@ -76,12 +76,16 @@
        
         <div class="mobile-menu mean-menu">
           <ul class="metismenu text-muted" id="metismenu">
-            <li><a href="./">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
 
-            <li><a href="./about.html">About</a></li>
-            <li class="active"><a href="./cause.html">Cause</a></li>
-            <li><a href="./transaction.html">Transactions</a></li>
-            <li><a href="./terms.html">T&C</a></li>
+            <li><a href="/about" style="list-style-type: none !important;">About</a></li>
+            <li><a href="/cause">Cause</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/terms">T&C</a></li>
+            <li class="mt-20">
+              
+                  <a onclick="connectWallet()" id="wallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
+            </li>
           </ul>
         </div>
       </div>
@@ -100,7 +104,7 @@
             <div class="col-xl-12">
               <div class="breadcrumb_section">
                 <ul class="breadcrumb-list volunteer_breadcrumb">
-                  <li class="bhas_border"><a href="index.html">Home</a></li>
+                  <li class="bhas_border"><a href="./">Home</a></li>
                   <li><span class="active">Donation</span></li>
                 </ul>
                 <div class="breadcrumb_title">
@@ -416,5 +420,70 @@
         </div>
       </div>
     </div>
+
+    <footer>
+    <div class="footer_top_area footer_top_2">
+      <div class="footer_top_wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7">
+              <div class="footer_widget footer_about ">
+                <div class="footer_logo mb-35">
+                  <a class="animation" href="/"><img src="img/logo/logo_white.png" alt="img" /></a>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-5 col-sm-5">
+              <div class="footer_widget mb-50 pl_15">
+                <div class="footer_widget_title mb-25">
+                  <h4 class="footer_title footer_title_2">Useful links</h4>
+                </div>
+                <div class="footer_links footer_links_2">
+                  <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/cause">Causes for Donation</a></li>
+                    <li><a href="/transactions">Donation Transactions</a></li>
+                    <li><a href="/terms">Terms & Condition</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-7 col-sm-7">
+              <div class="footer_widget mb-50 pl_25">
+
+                <p class="mb-30">
+                  Support decentralized giving with Web3 technology. Experience the benefits of secure cryptocurrency
+                  donations through blockchain technology.
+                </p>
+                <div class="footer_social_2">
+                  <a class="facebook" href="#!"><i class="fab fa-facebook-f"></i></a><a class="twitter"
+                    href="#!"><i class="fab fa-twitter"></i></a><a class="instagram" href="#!"><i
+                      class="fab fa-instagram"></i></a><a class="youtube" href="#!"><i
+                      class="fab fa-youtube"></i></a>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer_copyright_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-12 text-center">
+            <p>
+              Copyright © 2024 All Rights Reserved by
+              <strong><a href="./">BlockWiz</a></strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
