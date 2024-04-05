@@ -100,13 +100,13 @@
     </div>
   </body>
   <script>
-    let url="https://dido-dev-backend.onrender.com/"
+    let url="https://dido-dev-backend.onrender.com"
     let login_button=document.getElementById("login")
     login_button.addEventListener("click",()=>{
       //do signin
       let password=document.getElementById("password").value
       let email=document.getElementById("email").value
-      fetch(`${url}login`,{
+      fetch(`${url}/api/login`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
@@ -117,10 +117,10 @@
         })
       }).then(res=>res.json()).then(data=>{
         console.log(data)
-        if(data.status=="success"){
-          alert("logged in")
+        //if status code is 200 then redirect to index.html
+          window.localStorage.setItem("token",data.access_token)
           window.location.href="index.html"
-        }
+        
       }).catch(err=>console.log(err)
       )
     })
