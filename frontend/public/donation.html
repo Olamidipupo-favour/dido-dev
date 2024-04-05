@@ -242,24 +242,21 @@ window.addEventListener('load',(e)=>{
 console.log("check")
 
 
-// Get the input element
-const imageUpload = document.getElementById('imagePreview');
+        imgBaseUrl = ''
 
-// Add an event listener to detect file upload
-imageUpload.addEventListener('change', e => {
-  // Get the selected file
-   const file = imageUpload.files[0];
+        function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            imgBaseUrl = reader.result
+          console.log("RESULT", reader.result);
+        };
+        reader.readAsDataURL(file);
+      }
 
-  // Create a FileReader object
-  const reader = new FileReader();
-
-  // Set up the reader's onload event handler
-  reader.addEventListener("load", () => {
-    alert(reader.result)
-  })
- 
-
-});
+      document.querySelector('input[type="file"]').addEventListener('change', function() {
+        encodeImageFileAsURL(this);
+      });
 
 async function handleSubmit(event) {
         event.preventDefault(); // Prevent the default form submission behavior

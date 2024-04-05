@@ -136,11 +136,12 @@
       })
         .then((res) => res.json())
         .then((data) => {
-          window.localStorage.setItem("token", data.access_token);
-          window.location.href = "/";
-
-          window.localStorage.setItem("token", data.access_token);
-          window.location.href = "/";
+          if (data.access_token != undefined) {
+            window.localStorage.setItem("token", data.access_token);
+            window.location.href = "/";
+          } else {
+            alert("invalid credentials");
+          }
         })
         .catch((err) => console.log(err));
     });
