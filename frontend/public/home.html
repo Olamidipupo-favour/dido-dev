@@ -37,8 +37,7 @@ type="application/javascript"></script>
               <div class="main-menu menu_2 text-center">
                 <nav id="mobile-menu">
                   <ul>
-                    <li class="active"><a href="./">Home</a></li>
-
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="/cause">Cause</a></li>
                     <li><a href="/transactions">Transactions</a></li>
@@ -89,7 +88,7 @@ type="application/javascript"></script>
             <li><a href="/terms">T&C</a></li>
             <li class="mt-20">
               
-                  <a onclick="connectWallet()" id="wallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
+                  <a onclick="connectWallet()" id="mwallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
             </li>
           </ul>
         </div>
@@ -127,7 +126,7 @@ type="application/javascript"></script>
                             </p>
                             <div class="hero_buttons mt-35 wow fadeInUp" data-animation="fadeInUp" data-delay="0.9s">
                               <a class="g_btn theme1_bg to_rightout_heading rad-30 mr-20" href="/cause">Explore
-                                Causes<span></span></a><a class="g_btn heading_bg to_right1 rad-30" href="/about">Raise a cause<span></span></a>
+                                Causes<span></span></a><a class="g_btn heading_bg to_right1 rad-30" href="/request_donation">Raise a cause<span></span></a>
                             </div>
                           </div>
                         </div>
@@ -570,6 +569,7 @@ type="application/javascript"></script>
       sessionStorage.setItem('account', accounts[0]);
       if(address){
         document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
+        document.getElementById('mwallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
       } else {
         alert('Connect to metamask');
       }
@@ -578,7 +578,7 @@ type="application/javascript"></script>
     //fetch data from backend
     //display data on the table
     //fetch data from backend
-    let url = "https://dido-dev-backend.onrender.com";
+    let url = "https://basic-nada-blockwiz.koyeb.app";
     fetch(`${url}/api/all-transactions`, {
       method: "GET",
       headers: {
@@ -639,6 +639,7 @@ type="application/javascript"></script>
         console.log('Connected to MetaMask with address:', address);
     sessionStorage.setItem('account', accounts[0]);
         document.getElementById('wallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
+        document.getElementById('mwallet_').innerHTML = ' <i class="fab fa-ethereum px-2"></i>' + address.slice(0, 6) + '...' + address.slice(38, 42);
 
 
         

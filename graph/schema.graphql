@@ -1,7 +1,7 @@
-type Transfer @entity(immutable: true) {
+type Donate @entity(immutable: true) {
   id: Bytes!
-  sender: Bytes! # address
-  receiver: Bytes! # address
+  from: Bytes! # address
+  to: Bytes! # address
   amount: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
