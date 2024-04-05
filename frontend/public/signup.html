@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-sm-6 col-md-7 intro-section">
           <div class="brand-wrapper">
-            <a href="index.html"><img src="img/logo/logo.png" alt="" /></a>
+            <a href="./"><img src="img/logo/logo.png" alt="" /></a>
           </div>
           <div class="intro-content-wrapper">
             <h1 class="intro-title">Welcome to website !</h1>
@@ -119,14 +119,21 @@
   </body>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script>
+<<<<<<< HEAD
     document.getElementById("oxa").value=window.sessionStorage.getItem("account");
     document.getElementById("signup").addEventListener("click", function (e) {
       e.preventDefault();
       var but = $('#signup');
       but.html('<span class="loader"></span>');
+=======
+    document.getElementById("oxa").value =
+      window.sessionStorage.getItem("account");
+    document.getElementById("signup").addEventListener("click", function () {
+>>>>>>> 34bf6052f1c080a3ae704aac52489fabc4bafe78
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
-      document.getElementById("oxa").value=window.sessionStorage.getItem("account");
+      document.getElementById("oxa").value =
+        window.sessionStorage.getItem("account");
       let oxa = document.getElementById("oxa").value;
       let password = document.getElementById("password").value;
       let url = "https://dido-dev-backend.onrender.com";
@@ -144,8 +151,13 @@
       })
         .then((response) => response.json())
         .then((data) => {
+<<<<<<< HEAD
             //alert("Signup successful");
             window.location.href = "/login";
+=======
+          //alert("Signup successful");
+          window.location.href = "./login";
+>>>>>>> 34bf6052f1c080a3ae704aac52489fabc4bafe78
         });
     });
   </script>
