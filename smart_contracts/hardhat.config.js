@@ -6,7 +6,7 @@ module.exports = {
   networks: {
     "optimism-sepolia": {
       url: "https://sepolia.optimism.io",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: ["***REMOVED***"]
     }
   }
 };
