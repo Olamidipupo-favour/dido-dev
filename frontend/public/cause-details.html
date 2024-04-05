@@ -35,10 +35,10 @@
                   <ul>
                     <li ><a href="./">Home</a></li>
 
-                    <li><a href="./about.html">About</a></li>
-                    <li class="active"><a href="./cause.html">Cause</a></li>
-                    <li><a href="./transaction.html">Transactions</a></li>
-                    <li><a href="./terms.html">T&C</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li class="active"><a href="/cause">Cause</a></li>
+                    <li><a href="/transactions">Transactions</a></li>
+                    <li><a href="/terms">T&C</a></li>
                   </ul>
                 </nav>
               </div>
@@ -46,7 +46,7 @@
             <div class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
               <div class="header-right d-flex align-items-center justify-content-end">
                 <div class="header-sing d-inline-block d-none d-xl-block">
-                  <a class="g_btn hbtn_1 to_right1 rad-30">Connect Wallet<span></span></a>
+                  <a  onclick="connectWallet()"  id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
                 </div>
                 <div class="hamburger-menu menu-bar info-bar d-sm-block ml-20">
                   <button class="hamburger-btn open-mobile-menu">
@@ -244,7 +244,7 @@
                     <div class="submit_info_button">
                       <a
                         class="g_btn hbtn_1 to_right1 i_left rad-30"
-                        href="cause"
+                        href="/donate"
                         ><i class="fa fa-heart"></i> Donate now<span></span
                       ></a>
                     </div>
@@ -270,7 +270,7 @@
                   <div class="feature_buttons widget_buttons">
                     <a
                       class="g_btn hbtn_1 to_right1 i_left rad-30"
-                      href="donation"
+                      href="/donate"
                       ><i class="fa fa-heart"></i>Donate Now<span></span></a
                     >
                   </div>
@@ -487,3 +487,8 @@
   </footer>
   </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./assets/js/main.js"></script>
