@@ -30,6 +30,9 @@ app.get('/cause-details', (req, res) => {
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'signup.html'));
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
