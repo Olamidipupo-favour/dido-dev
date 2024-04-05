@@ -95,18 +95,18 @@ class GetDonations(Resource):
         subgraph_gql_query= gql(
 """
 {
-  transfers(first: 10) {
+  donates(first: 10) {
     id
-    sender
-    receiver
-    amount
+    from
+    to
     blockNumber
-    transactionHash
     blockTimestamp
+    transactionHash
+    amount
   }
 }
 """)
-        donations=gql_client.execute(subgraph_gql_query).get('transfers')
+        donations=gql_client.execute(subgraph_gql_query).get('donates')
         for i in donations:
             #fetch sender name from db
             try:
@@ -139,10 +139,10 @@ class GetRecipeintsDonations(Resource):
             gql_query= gql(
                 """
 {
-  transfers(where: { receiver: "x" }) {
+  donates(where: {to: "x"}) {
     id
-    sender
-    receiver
+    from
+    to
     blockNumber
     blockTimestamp
     transactionHash
@@ -165,10 +165,10 @@ class GetSendersDonations(Resource):
             gql_query= gql(
                 """
 {
-  transfers(where: { sender: "x" }) {
+  donates(where: {sender: "x"}) {
     id
-    sender
-    receiver
+    from
+    to
     blockNumber
     blockTimestamp
     transactionHash
