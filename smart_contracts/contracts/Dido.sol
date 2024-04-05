@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-import "hardhat/console.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract Dido is ReentrancyGuard {
+contract Dido  {
 
     address payable owner;
 
@@ -46,7 +44,7 @@ contract Dido is ReentrancyGuard {
         owner = payable(msg.sender);
     }
 
-    function generalDonate() public payable  nonReentrant() {
+    function generalDonate() public payable {
 
         donated[msg.sender] += msg.value;
         if(donated[msg.sender] > topDonorAmount){
