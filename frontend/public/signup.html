@@ -83,6 +83,7 @@
                   id="oxa"
                   class="form-control"
                   placeholder="ox......."
+                  disabled
                 />
               </div>
               <div class="form-group mb-3">
@@ -117,10 +118,12 @@
     </div>
   </body>
   <script>
+    document.getElementById("oxa").value=window.sessionStorage.getItem("account");
     document.getElementById("signup").addEventListener("click", function () {
       let fullname = document.getElementById("fullname").value;
       let email = document.getElementById("email").value;
-      let oxadress = document.getElementById("oxa").value;
+      document.getElementById("oxa").value=window.sessionStorage.getItem("account");
+      let oxa = document.getElementById("oxa").value;
       let password = document.getElementById("password").value;
       let url = "https://dido-dev-backend.onrender.com";
       fetch(`${url}/api/register`, {
@@ -137,12 +140,8 @@
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.status === "success") {
-            alert("Signup successful");
+            //alert("Signup successful");
             window.location.href = "./login";
-          } else {
-            alert("Signup failed");
-          }
         });
     });
   </script>
