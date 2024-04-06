@@ -127,7 +127,7 @@ type="application/javascript"></script>
 
             <div class="form-group mb-4">
               <label for="donationTarget" class="mb-2">Donation Target (in ETH)</label>
-              <input type="number" class="form-control py-3" id="donationTarget" name="donationTarget" placeholder="Provide donation target amount" required>
+              <input type="text" class="form-control py-3" id="donationTarget" name="donationTarget" placeholder="Provide donation target amount" required>
             </div>
 
             <div class="alert alert-info" role="alert">
@@ -242,14 +242,14 @@ window.addEventListener('load',(e)=>{
 console.log("check")
 
 
-        imgBaseUrl = ''
+        var imgBaseUrl = ''
 
-        function encodeImageFileAsURL(element) {
+      function encodeImageFileAsURL(element) {
         var file = element.files[0];
         var reader = new FileReader();
         reader.onloadend = function () {
             imgBaseUrl = reader.result
-          console.log("RESULT", reader.result);
+            console.log("RESULT", reader.result);
         };
         reader.readAsDataURL(file);
       }
@@ -259,6 +259,7 @@ console.log("check")
       });
 
 async function handleSubmit(event) {
+  console.log(imgBaseUrl);
         event.preventDefault(); // Prevent the default form submission behavior
 
         const formData = new FormData(event.target); // Get form data
@@ -266,6 +267,11 @@ async function handleSubmit(event) {
         const donationDescription = formData.get('donationDescription'); 
         const donationTarget = formData.get('donationTarget'); 
         const donationLink = formData.get('donationLink');
+
+        if (isNaN(donationTarget)) {
+          alert("Please enter a number as donation target");
+          return;
+        }
 
 
 
@@ -460,7 +466,7 @@ async function handleSubmit(event) {
 
         let raised = tokens("0")
       
-        let transaction = await dido.connect(signer).postDonation( name,"", email, title, donationDescription, donationLink, "", target, raised) 
+        let transaction = await dido.connect(signer).postDonation( name,"", email, title, donationDescription, donationLink, '', target, raised) 
         await transaction.wait()
 
         const donation = await dido.donations(0)
