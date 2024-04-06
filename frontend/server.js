@@ -62,18 +62,14 @@ app.post('/getDonations', async (req, res) => {
   const donations = req.body
   // const {} = req.body
   res.render("cause", {layout: noLayout, donations: donations})
-  
 })
 
 app.post('/singleDonations', async (req, res) => {
   console.log(req.body)
   const donation = req.body
   // const {} = req.body
-  res.render("cause-details", {layout: noLayout, donation: donation})
-  
+  res.render("cause-details", {layout: noLayout, donation: donation})  
 })
-
-
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
