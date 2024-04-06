@@ -147,7 +147,7 @@
                   <a class="sub_title sub_title_2"><%= donation.recipient %></a>
                 </div>
                 <h4 class="donation_title" style="word-wrap: break-word;">
-                  <%= donation.title %>
+                  <a href="/cause-details/<%= donation.id %>"><%= donation.title %></a>
                 </h4>
                 <p>
                   <%= donation.description %>

@@ -360,6 +360,7 @@
             don["email"] = donation.email
             don["link"] = donation.links
             don["address"] = donation.recipient
+            don['imagesUrl'] = (donation.imagesUrl !== '' && donation.imagesUrl !== 'path') ? 'https://dido.treasureuvietobore.com/' + donation.imagesUrl : 'img/donation/donation_single1.jpg'
 
 
             console.log(don)

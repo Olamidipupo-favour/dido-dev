@@ -5094,6 +5094,12 @@ input.main-search-input:-ms-input-placeholder {
 }
 .single_donation_img {
   overflow: hidden;
+
+}
+.single_donation_img img {
+  height: 350px;
+  width: 100% !important;
+  object-fit: cover;
 }
 @media (max-width: 767px),
   only screen and (min-width: 768px) and (max-width: 991px) {

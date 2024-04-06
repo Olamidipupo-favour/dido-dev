@@ -399,11 +399,12 @@
             don["description"] = donation.description
             don["togo"] =  ethers.utils.formatEther(donation.target) - ethers.utils.formatEther(donation.raised)
             don['recipient'] = donation.recipient
-            don['imagesUrl'] = (donation.imagesUrl !== '') ? 'https://dido.treasureuvietobore.com/' + donation.imagesUrl : 'img/donation/donation_single1.jpg'
+            don['imagesUrl'] = (donation.imagesUrl !== '' && donation.imagesUrl !== 'path') ? 'https://dido.treasureuvietobore.com/' + donation.imagesUrl : 'img/donation/donation_single1.jpg'
             console.log(don['imagesUrl'])
             data.push(don)
         }
 
+        data.reverse()
 
         fetch("/getDonations", {
             method: 'POST',
