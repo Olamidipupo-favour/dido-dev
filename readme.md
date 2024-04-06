@@ -9,7 +9,7 @@ DiDo is a revolutionary platform that leverages web3 technologies to foster tran
 * Asset Design: Canva
 * Backend: Flask (Python framework)
 * Blockchain Deployment: Optimism Sepolia
-* Subgraph: The Graph
+* Subgraph: The Graph NB: This was only implemented on the backend to retrieve transactions as there wasn't enough time.
 * Database: MongoDB
 * Deployment: Koyeb(backend,  flask server), VPS(frontend)
 * Version Control: GitHub
