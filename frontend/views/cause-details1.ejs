@@ -896,7 +896,7 @@
 
             console.log(id); 
 
-            const amount = document.getElementById("amount_").value
+            const amount = parseFloat(document.getElementById("amount_").value)
             console.log(amount)
             if(!amount){
                 alert("Fix in amount before proceeding to donate")
@@ -904,9 +904,15 @@
             }
             const fee = (1 * amount) / 100
             console.log(fee)
-          const tr = await dido.connect(signer).donateAddress(id, amount, {value: tokens(amount + fee)})
+          const tr = await dido.connect(signer).donateAddress(id,tokens(String(amount)), {value: tokens(String(amount + fee))}).then((tr) => {
+              console.log(tr)
+              //alert("Donation successful")
+              window.location.href = `/cause-details/${id}`;
+          }).catch((err) => {
+              console.log(err)
+              alert("Donation failed")
             console.log(tr)
-
+          });
             window.location.href = `/cause-details/${id}`;
          
     }
