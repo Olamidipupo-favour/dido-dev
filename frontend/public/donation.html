@@ -14,6 +14,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .loader {
+        width: 25px;
+        height: 25px;
+        border: 5px solid rgb(37, 99, 235);
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+    </style>
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
@@ -136,7 +148,7 @@ type="application/javascript"></script>
               Your current address: <span id="currentAddress"></span>
             </div>
 
-            <button type="submit"  class="btn py-3 px-5 mt-10 mb-20" style="background-color: #263B5C;color: #fff;">Submit Request</button>
+            <button type="submit" id="submitReq" class="btn py-3 px-5 mt-10 mb-20" style="background-color: #263B5C;color: #fff;">Submit Request</button>
           </form>
         </div>
       </div>
@@ -258,8 +270,11 @@ console.log("check")
         encodeImageFileAsURL(this);
       });
 
-async function handleSubmit(event) {
-  console.log(imgBaseUrl);
+    async function handleSubmit(event) {
+        var but = $('#submitReq')
+        but.disabled = true;
+        but.html('<span class="loader"></span>');
+        var uplaoded = false;
         event.preventDefault(); // Prevent the default form submission behavior
 
         const formData = new FormData(event.target); // Get form data
@@ -273,7 +288,29 @@ async function handleSubmit(event) {
           return;
         }
 
+        var uri = "";
+        if (imgBaseUrl !== '') {
+          await fetch('/uploadImage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ base64data: imgBaseUrl }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            uplaoded = true;
+            uri = data.imageUrl;
+            console.log(uri);
+          })
+          .catch((error) => {
+            console.error('Error uploading image:', error);
+          });
+        } else {
+          console.log('No image uploaded');
+        }
 
+        console.log(uri)
 
         console.log(title, donationDescription, donationTarget,name, email , donationLink)
         // Do something with the form data
@@ -466,7 +503,7 @@ async function handleSubmit(event) {
 
         let raised = tokens("0")
       
-        let transaction = await dido.connect(signer).postDonation( name,"", email, title, donationDescription, donationLink, '', target, raised) 
+        let transaction = await dido.connect(signer).postDonation( name,"", email, title, donationDescription, donationLink, uri, target, raised) 
         await transaction.wait()
 
         const donation = await dido.donations(0)
@@ -474,6 +511,8 @@ async function handleSubmit(event) {
 
         const count2 = await dido.donationsCount()
         console.log(count2)
+
+      window.location.href = "/cause";
 
     }
 

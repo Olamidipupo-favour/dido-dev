@@ -4,6 +4,7 @@ import path from "path";
 import expressLayout from "express-ejs-layouts"
 import { config } from 'dotenv';
 import bodyParser from "body-parser";
+import fs from 'fs';
 
 const noLayout = '../views/layouts/nothing.ejs'
 config();
@@ -70,6 +71,31 @@ app.post('/singleDonations', async (req, res) => {
   // const {} = req.body
   res.render("cause-details", {layout: noLayout, donation: donation})  
 })
+
+app.post('/uploadImage', (req, res) => {
+  const { base64data } = req.body;
+  if (!base64data) {
+    return res.status(400).send('No image data provided');
+  }
+
+  // Generate a unique filename
+  const filename = `image_${Date.now()}.png`;
+  const filePath = path.join(__dirname, 'public', 'uploads', filename);
+
+  // Convert base64 to image and save
+  const base64Image = base64data.split(';base64,').pop();
+  fs.writeFile(filePath, base64Image, {encoding: 'base64'}, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error saving image');
+    }
+
+    // Return the URL of the saved image
+    const imageUrl = `/uploads/${filename}`;
+    res.json({ imageUrl });
+  });
+});
+
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
