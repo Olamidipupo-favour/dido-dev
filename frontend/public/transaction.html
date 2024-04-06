@@ -265,14 +265,11 @@
           data.donations.forEach((element) => {
             let tr = document.createElement('tr');
             let donor = document.createElement('td');
-            donor.innerText = element.sender;
+            donor.innerText = element.from;
             let cause = document.createElement('td');
             cause.innerText = element.cause;
-            let date1=new Date(element.blockTimestamp*1000)
-            let date2=date1.toDateString() + " "+ date1.getHours+':' + date1.getMinutes + ':' + date1.getSeconds;
-
             let date = document.createElement('td');
-            date.innerText = date2;
+            date.innerText = convertDate(element.blockTimestamp);
             let amount = document.createElement('td');
             amount.innerHTML = '<i class="fas fa-coins" style="padding-right: 15px;"></i>'+element.amount;
             let action = document.createElement('td');
@@ -298,5 +295,26 @@
             table.appendChild(tr);
           });
       });
+
+      function convertDate(timestamp) {
+      console.log(timestamp)
+      // const timestamp = 1712368394; // Your timestamp
+
+      // Create a new Date object and pass the timestamp multiplied by 1000 (as JavaScript operates in milliseconds)
+      const date = new Date(timestamp * 1000);
+
+      // Extract the components of the date
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+
+      // Format the date as desired
+      const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+      return formattedDate;
+    }
     });
 </script>
