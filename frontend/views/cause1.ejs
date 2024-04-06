@@ -397,7 +397,7 @@
             don["raised"] = ethers.utils.formatEther(donation.raised)
             don["description"] = donation.description
             don["togo"] =  ethers.utils.formatEther(donation.target) - ethers.utils.formatEther(donation.raised)
-
+            don['recipient'] = donation.recipient
             data.push(don)
         }
 
