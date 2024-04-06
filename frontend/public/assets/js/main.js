@@ -50,7 +50,7 @@ sessionStorage.setItem('account', accounts[0]);
       method: 'wallet_addEthereumChain',
       params: [
         {
-          chainId: 11155420,
+          chainId: "0xAA37DC",
           chainName: 'Optimism Sepolia',
           nativeCurrency: {
             name: 'Ether',

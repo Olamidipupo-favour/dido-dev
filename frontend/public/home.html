@@ -563,6 +563,7 @@ type="application/javascript"></script>
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
+      connectWallet();  
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       let address = accounts[0];
       console.log('Connected to MetaMask with address:', address);
@@ -669,7 +670,7 @@ type="application/javascript"></script>
           method: 'wallet_addEthereumChain',
           params: [
             {
-              chainId: 11155420,
+              chainId: "0xAA37DC",
               chainName: 'Optimism Sepolia',
               nativeCurrency: {
                 name: 'Ether',
@@ -677,7 +678,7 @@ type="application/javascript"></script>
                 decimals: 18,
               },
               rpcUrls: ['https://sepolia.optimism.io'],
-              blockExplorerUrls: ['https://optimism-sepolia.blockscout.com'],
+              blockExplorerUrls: ['https://optimism-sepolia.etherscan.com'],
             },
           ],
         });
