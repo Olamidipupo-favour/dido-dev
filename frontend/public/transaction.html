@@ -268,8 +268,11 @@
             donor.innerText = element.sender;
             let cause = document.createElement('td');
             cause.innerText = element.cause;
+            let date1=new Date(element.blockTimestamp*1000)
+            let date2=date1.toDateString() + " "+ date1.getHours+':' + date1.getMinutes + ':' + date1.getSeconds;
+
             let date = document.createElement('td');
-            date.innerText = element.date;
+            date.innerText = date2;
             let amount = document.createElement('td');
             amount.innerHTML = '<i class="fas fa-coins" style="padding-right: 15px;"></i>'+element.amount;
             let action = document.createElement('td');
