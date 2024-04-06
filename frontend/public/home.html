@@ -563,7 +563,7 @@ type="application/javascript"></script>
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', async function() {
-      connectWallet();  
+      //connectWallet();  
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       let address = accounts[0];
       console.log('Connected to MetaMask with address:', address);
