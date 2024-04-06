@@ -728,7 +728,7 @@
   
           if(network.chainId !== 11155420){
             console.log("Connect to OP sepolia test network");
-            alert("Connect to hardhat local network");
+            alert("Connect to OP sepolia test network");
             return
           }
   
@@ -887,6 +887,7 @@
           console.log(dido)
   
           const signer = await  provider.getSigner()
+        console.log(await signer.getAddress())
 
           // get id
             const url = window.location.href;
@@ -902,9 +903,9 @@
                 alert("Fix in amount before proceeding to donate")
                 return
             }
-            const fee = (1 * amount) / 100
-            console.log(fee)
-          const tr = await dido.connect(signer).donateAddress(id, amount, {value: tokens(amount + fee)})
+            
+            const sendAmount = amount + 0.0001
+          const tr = await dido.connect(signer).donateAddress(id, tokens(amount), {value: tokens(sendAmount)})
             console.log(tr)
 
             window.location.href = `/cause-details/${id}`;

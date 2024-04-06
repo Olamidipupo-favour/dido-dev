@@ -35,7 +35,7 @@
               <div class="main-menu menu_2 text-center">
                 <nav id="mobile-menu">
                   <ul>
-                    <li ><a href="./">Home</a></li>
+                    <li ><a href="/">Home</a></li>
 
                     <li><a href="/about">About</a></li>
                     <li class="active"><a href="/cause">Cause</a></li>
@@ -462,7 +462,7 @@
   
           if(network.chainId !== 11155420){
             console.log("Connect to OP sepolia test network");
-            alert("Connect to hardhat local network");
+            alert("Connect to OP sepolia test network");
             return
           }
   
@@ -621,7 +621,7 @@
           console.log(dido)
   
           const signer = await  provider.getSigner()
-
+        console.log(await signer.getAddress())
           // get id
             const url = window.location.href;
             const parts = url.split('/');
@@ -638,12 +638,14 @@
             }
             const fee = (1 * amount) / 100
             console.log(fee)
-        //   const tr = await dido.donateAddress(id, amount, {value: tokens(amount + fee)})
-        //     console.log(tr)
+            const sendAmount = amount + fee
+          const tr = await dido.connect(signer).donateAddress(id, amount, {value: tokens(amount)})
+            console.log(tr)
+
+            window.location.href = `/cause-details/${id}`;
          
     }
   </script>
-
 
   </body>
 </html>
