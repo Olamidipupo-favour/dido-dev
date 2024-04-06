@@ -110,7 +110,7 @@ class GetDonations(Resource):
         for i in donations:
             #fetch sender name from db
             try:
-                i['sender']=client.users.dido.find_one({'oxadress':i['from']}).get('name')
+                i['from']=client.users.dido.find_one({'oxadress':i['from']}).get('name')
             except:
                 pass
             try:
