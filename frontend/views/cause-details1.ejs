@@ -904,15 +904,14 @@
             }
             const fee = (1 * amount) / 100
             console.log(fee)
-          const tr = await dido.connect(signer).donateAddress(id,tokens(String(amount)), {value: tokens(String(amount + fee))}).then((tr) => {
-              console.log(tr)
-              //alert("Donation successful")
-              window.location.href = `/cause-details/${id}`;
-          }).catch((err) => {
-              console.log(err)
-              alert("Donation failed")
-            console.log(tr)
-          });
+            try{
+          const tr = await dido.connect(signer).donateAddress(id,tokens(String(amount)), {value: tokens(String(amount + fee))})
+        }
+        catch(err){
+            console.log(err)
+            alert("Donation failed")
+            return
+        }
             window.location.href = `/cause-details/${id}`;
          
     }
