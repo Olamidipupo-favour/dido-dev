@@ -391,6 +391,7 @@
         for (let i = 0; i < count; i++ ){
             let don = {}
             const donation = await dido.donations(i)
+            console.log(donation)
             don["id"] = (donation.id).toNumber()
             don["title"] = donation.title
             don["target"] = ethers.utils.formatEther(donation.target)
@@ -398,6 +399,8 @@
             don["description"] = donation.description
             don["togo"] =  ethers.utils.formatEther(donation.target) - ethers.utils.formatEther(donation.raised)
             don['recipient'] = donation.recipient
+            don['imagesUrl'] = (donation.imagesUrl !== '') ? 'https://dido.treasureuvietobore.com/' + donation.imagesUrl : 'img/donation/donation_single1.jpg'
+            console.log(don['imagesUrl'])
             data.push(don)
         }
 
