@@ -102,6 +102,6 @@ contract Dido  {
         require(msg.sender == owner, "Only deployer can call approve request ETH");
         require(address(this).balance > _amount, "Insufficient balance");
         payable(_recipientAddress).transfer(_amount);
-            
+
     }    
 }
