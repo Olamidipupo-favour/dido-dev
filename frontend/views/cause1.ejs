@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <title>Decentralized Donation Hub: Cause for Donation</title>
+     <meta name="description" content="Developed by BlockWiz" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="manifest" href="./404.html" />
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+  <meta name="next-head-count" content="7" />
+  <link rel="stylesheet" href="assets/css/ex-style.css" />
+  <link rel="stylesheet" href="assets/css/general.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+  type="application/javascript"></script>
+</head>
+
+<body id="content">
+  <div>
+    <header class="header-area">
+      <div id="sticky-header" class="header_menu_area header_menu_area_2">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
+              <div class="logo">
+                <a href="./"><img src="img/logo/logo.png" alt="" /></a>
+              </div>
+            </div>
+            <div class="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
+              <div class="main-menu menu_2 text-center">
+                <nav id="mobile-menu">
+                  <ul>
+                    <li><a href="./">Home</a></li>
+
+                    <li><a href="/about">About</a></li>
+                    <li class="active"><a href="/cause">Cause</a></li>
+                    <li><a href="/transactions">Transactions</a></li>
+                    <li><a href="/terms">T&C</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
+              <div class="header-right d-flex align-items-center justify-content-end">
+                <div class="header-sing d-inline-block d-none d-xl-block">
+                  <a  onclick="connectWallet()"  id="wallet_" class="g_btn hbtn_1 to_right1 rad-30 c_wallet">Connect Wallet<span></span></a>
+                </div>
+                <div class="hamburger-menu menu-bar info-bar d-sm-block ml-20">
+                  <button class="hamburger-btn open-mobile-menu">
+                    <i class="fa fa-bars"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+     <div class="fix d-lg-none">
+      <div class="side-info">
+        <div class="offset-widget offset-logo mb-30 pb-20">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <a class="mobile_logo" href="/"><img src="img/logo/logo.png" alt="Logo" /></a>
+            </div>
+            <div class="col-4 text-end">
+              <button class="side-info-close">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        <div class="mobile-menu mean-menu">
+          <ul class="metismenu text-muted" id="metismenu">
+            <li class="active"><a href="/">Home</a></li>
+
+            <li><a href="/about" style="list-style-type: none !important;">About</a></li>
+            <li><a href="/cause">Cause</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/terms">T&C</a></li>
+            <li class="mt-20">
+              
+                  <a onclick="connectWallet()" id="mwallet_" class="g_btn hbtn_1  rad-30 c_wallet">Connect Wallet<span></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <section
+        class="breadcrumb_area breadcrumb_overlay"
+        style="background: url(img/bg/breadcrum_bg_2.jpg)"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="breadcrumb_section">
+                <ul class="breadcrumb-list volunteer_breadcrumb">
+                  <li class="bhas_border"><a href="./">Home</a></li>
+                  <li><span class="active">Cause</span></li>
+                </ul>
+                <div class="breadcrumb_title"><h2>Your help is needed</h2></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="causes_area gray-bg pt-120 pb-85">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-12 text-center">
+              <div class="cause_button_wrapper mb-25">
+                <nav>
+                  <div class="nav tab_buttons" id="nav-tab" role="tablist">
+                    <button class="nav-link active">All Categories</button
+                    ><button class="nav-link">Trending</button
+                    ><button class="nav-link">Recently Posted</button
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+         <div class="cause_container_active">
+            <div class="causes_area grey-bg pt-105 " style="background-image: url(img/causes/cause_map.png)">
+              <div class="container">
+                 
+        
+        </div>
+          <div class="row">
+            <div class="cause_button text-center mt-10 mb-30">
+              <a class="cause_btn g_btn to_right1 rad-30" href="cause"
+                >Load More <i class="far fa-plus"></i> <span></span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+    <div class="footer_top_area footer_top_2">
+      <div class="footer_top_wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7">
+              <div class="footer_widget footer_about ">
+                <div class="footer_logo mb-35">
+                  <a class="animation" href="/"><img src="img/logo/logo_white.png" alt="img" /></a>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-5 col-sm-5">
+              <div class="footer_widget mb-50 pl_15">
+                <div class="footer_widget_title mb-25">
+                  <h4 class="footer_title footer_title_2">Useful links</h4>
+                </div>
+                <div class="footer_links footer_links_2">
+                  <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/cause">Causes for Donation</a></li>
+                    <li><a href="/transactions">Donation Transactions</a></li>
+                    <li><a href="/terms">Terms & Condition</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-7 col-sm-7">
+              <div class="footer_widget mb-50 pl_25">
+
+                <p class="mb-30">
+                  Support decentralized giving with Web3 technology. Experience the benefits of secure cryptocurrency
+                  donations through blockchain technology.
+                </p>
+                <div class="footer_social_2">
+                  <a class="facebook" href="#!"><i class="fab fa-facebook-f"></i></a><a class="twitter"
+                    href="#!"><i class="fab fa-twitter"></i></a><a class="instagram" href="#!"><i
+                      class="fab fa-instagram"></i></a><a class="youtube" href="#!"><i
+                      class="fab fa-youtube"></i></a>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer_copyright_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-12 text-center">
+            <p>
+              Copyright © 2024 All Rights Reserved by
+              <strong><a href="./">BlockWiz</a></strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    </div>
+  </body>
+</html>
+
+<script>
+  getAllItems()
+  async function getAllItems() {
+    const tokens = (n) => {
+            return ethers.utils.parseEther(n);
+        }
+
+      
+        
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        console.log(provider)
+
+        const network = await provider.getNetwork()
+        console.log(network.chainId)
+
+        if(network.chainId !== 11155420){
+          console.log("Connect to OP sepolia test network");
+          alert("Connect to hardhat local network");
+          return
+        }
+
+        // connect to smart contracts (create js versions)
+        const abi = [
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Donate",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_recipientAddress",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "approveRequestEth",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_donationId", "type": "uint256" },
+      { "internalType": "uint256", "name": "realMoney", "type": "uint256" }
+    ],
+    "name": "donateAddress",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "donated",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "donations",
+    "outputs": [
+      { "internalType": "uint256", "name": "id", "type": "uint256" },
+      { "internalType": "address", "name": "recipient", "type": "address" },
+      { "internalType": "string", "name": "fullname", "type": "string" },
+      { "internalType": "string", "name": "contact", "type": "string" },
+      { "internalType": "string", "name": "email", "type": "string" },
+      { "internalType": "string", "name": "title", "type": "string" },
+      { "internalType": "string", "name": "description", "type": "string" },
+      { "internalType": "string", "name": "links", "type": "string" },
+      { "internalType": "string", "name": "imagesUrl", "type": "string" },
+      { "internalType": "uint256", "name": "target", "type": "uint256" },
+      { "internalType": "uint256", "name": "raised", "type": "uint256" },
+      { "internalType": "bool", "name": "completed", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "donationsCount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "eachDonated",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "eachTopDonor",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "eachTopDonorAmount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "generalDonate",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_fullname", "type": "string" },
+      { "internalType": "string", "name": "_contact", "type": "string" },
+      { "internalType": "string", "name": "_email", "type": "string" },
+      { "internalType": "string", "name": "_title", "type": "string" },
+      { "internalType": "string", "name": "_description", "type": "string" },
+      { "internalType": "string", "name": "_links", "type": "string" },
+      { "internalType": "string", "name": "_imagesUrl", "type": "string" },
+      { "internalType": "uint256", "name": "_target", "type": "uint256" },
+      { "internalType": "uint256", "name": "_raised", "type": "uint256" }
+    ],
+    "name": "postDonation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "topDonor",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "topDonorAmount",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
+        
+        const dido = new ethers.Contract("0x0290f25EA78E3d85076e085B87787C30567f63f9", abi, provider)
+        // setDappazon(dappazon)
+        console.log(dido)
+
+        const signer = await  provider.getSigner()
+
+        const count = await dido.donationsCount()
+        console.log(count.toNumber())
+        let data = []
+        for (let i = 0; i < count; i++ ){
+            let don = {}
+            const donation = await dido.donations(i)
+            don["id"] = (donation.id).toNumber()
+            don["title"] = donation.title
+            don["target"] = ethers.utils.formatEther(donation.target)
+            don["raised"] = ethers.utils.formatEther(donation.raised)
+            don["description"] = donation.description
+            don["togo"] =  ethers.utils.formatEther(donation.target) - ethers.utils.formatEther(donation.raised)
+
+            data.push(don)
+        }
+
+
+        fetch("/getDonations", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response=> response.text())
+        .then(renderedContent => {
+            document.getElementById('content').innerHTML = renderedContent
+        })
+        .catch(error => {
+            console.error('ERROR: ' + error)
+        })
+    
+       
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="./assets/js/main.js"></script>

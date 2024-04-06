@@ -20,7 +20,7 @@
   type="application/javascript"></script>
 </head>
 
-<body>
+<body id="content">
   <div>
     <header class="header-area">
       <div id="sticky-header" class="header_menu_area header_menu_area_2">
@@ -617,11 +617,29 @@
 
         const count = await dido.donationsCount()
         console.log(count.toNumber())
-        for (let i = 0; i <= count; i++ ){
+        let data = []
+        for (let i = 0; i < count; i++ ){
+            let don = {}
             const donation = await dido.donations(i)
-            console.log((donation.id).toNumber());
-            console.log(donation.title);
+            don["id"] = (donation.id).toNumber()
+            don["title"] = donation.title
+            data.push(don)
         }
+
+
+        fetch("/getDonations", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response=> response.text())
+        .then(renderedContent => {
+            document.getElementById('content').innerHTML = renderedContent
+        })
+        .catch(error => {
+            console.error('ERROR: ' + error)
+        })
     
        
   }
