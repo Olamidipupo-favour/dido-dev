@@ -3,8 +3,6 @@
 Decentralized donation platform. Donors give on-chain, causes request funds, and
 the app reads donations from an indexed subgraph.
 
-Live demo: https://dido.treasureuvietobore.com/
-
 Contract: `0x0290f25EA78E3d85076e085B87787C30567f63f9` on Optimism Sepolia.
 
 ## Layout

@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js",
-    "build": "vite build",
+    "dev": "node init && nodemon server.js",
+    "build": "node init && vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node init && node server.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
