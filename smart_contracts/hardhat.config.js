@@ -1,21 +1,20 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("dotenv").config()
+require("dotenv").config();
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
   networks: {
     "optimism-sepolia": {
       url: "https://sepolia.optimism.io",
-      chainId:11155420,
-      accounts: ["***REMOVED***"]
-    }
+      chainId: 11155420,
+      accounts: process.env.DEPLOYER_PRIVATE_KEY ? [process.env.DEPLOYER_PRIVATE_KEY] : [],
+    },
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
-    apiKey: "***REMOVED***"
+    apiKey: process.env.ETHERSCAN_API_KEY || "",
   },
   sourcify: {
-  enabled: true
-}
+    enabled: true,
+  },
 };
